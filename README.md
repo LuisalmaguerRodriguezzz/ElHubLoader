@@ -1,3 +1,10 @@
+print("El Loader.lua se ejecutó correctamente")
+game.StarterGui:SetCore("SendNotification", {
+    Title = "El Hub",
+    Text = "Loader cargado correctamente!",
+    Duration = 5
+})
+
 -- Cargar dependencias
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Adonis-Admin-Anti-Crash-18757"))()
 
