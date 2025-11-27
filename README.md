@@ -1,29 +1,4 @@
-
--- Cargar dependencias
-loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Adonis-Admin-Anti-Crash-18757"))()
-
-local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
-
-local Window = Rayfield:CreateWindow({
-    Name = "El Hub",
-    Icon = 0,
-    LoadingTitle = "El Hub",
-    LoadingSubtitle = "by theyfwluis.",
-    Theme = "Green",
-    ConfigurationSaving = {
-        Enabled = true,
-        FolderName = nil,
-        FileName = "Big Hub"
-    },
-    KeySystem = false
-})
-
--- Sección de duplicación de cartas
-local CardTab = Window:CreateTab("Card", 4483362458)
-local CardSection = CardTab:CreateSection("Card Duping")
-local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local VirtualInputManager = game:GetService("VirtualInputManager")
+-- 👇 ESTA LÍNEA BLOQUEA VOLVER A USAR EL HUB HASTA REUNIR if _G.ElHubClosed then warn("El Hub está bloqueado hasta que salgas y vuelvas a entrar al juego.") return end -- Marca el Hub como cerrado si lo activan _G.ElHubClosed = false -- Cargar dependencias loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Adonis-Admin-Anti-Crash-18757"))() local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))() local Window = Rayfield:CreateWindow({ Name = "El Hub", Icon = 0, LoadingTitle = "El Hub", LoadingSubtitle = "by theyfwluis.", Theme = "Green", ConfigurationSaving = { Enabled = true, FolderName = nil, FileName = "Big Hub" }, KeySystem = false }) local UtilitiesTab = Window:CreateTab("Utilities", 4483362458) local UtilitiesSection = UtilitiesTab:CreateSection("Screen") local blackScreen = Instance.new("ScreenGui") blackScreen.IgnoreGuiInset = true blackScreen.ZIndexBehavior = Enum.ZIndexBehavior.Global blackScreen.ResetOnSpawn = false local blackFrame = Instance.new("Frame") blackFrame.Size = UDim2.new(1, 0, 1, 0) blackFrame.Position = UDim2.new(0, 0, 0, 0) blackFrame.BackgroundColor3 = Color3.new(1,1,1) blackFrame.BackgroundTransparency = 0 blackFrame.Parent = blackScreen blackScreen.Enabled = false blackScreen.Parent = game.CoreGui UtilitiesTab:CreateToggle({ Name = "Paintball Lag Working Script", CurrentValue = false, Flag = "BlackScreenToggle", Callback = function(Value) if Value then blackScreen.Enabled = true task.wait(0.5) -- ❌ Marcar que ya no se puede usar más _G.ElHubClosed = true -- ❌ Destruir todo if Rayfield and Rayfield.Destroy then Rayfield:Destroy() end Window = nil Rayfield = nil end end, }) local VirtualInputManager = game:GetService("VirtualInputManager")
 local RunService = game:GetService("RunService")
 local StarterGui = game:GetService("StarterGui")
 local player = Players.LocalPlayer
